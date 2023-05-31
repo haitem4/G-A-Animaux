@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Pet Club</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="{% static 'images/favicon.ico'%}">
+    <link rel="shortcut icon" href="{% static '/images/favicon.ico'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slider.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="{% static 'js/jquery.js'%}"></script>
+    <script src="{% static 'js/jquery-migrate-1.1.1.js'%}"></script>
+    <script src="{% static 'js/superfish.js'%}"></script>
+    <script src="{% static 'js/jquery.carouFredSel-6.1.0-packed.js'%}"></script>
+    <script src="{% static 'js/jquery.equalheights.js'%}"></script>
+    <script src="{% static 'js/jquery.easing.1.3.js'%}"></script>
+    <script src="{% static 'js/tms-0.4.1.js'%}"></script>
+    <script src="{% static 'js/jquery.ui.totop.js'%}"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script> jQuery(document).ready(function () {
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+        });
+
+        function idA(id) {
+            document.getElementById("idA").value = id;
+        }
+    </script>
+
+</head>
+
+<body class="page2">
+    <header>
+        <div class="container_12">
+            <div class="grid_12">
+                <h1><a href="index.html"><img src="{% static 'images/logo.png' %}" alt=""></a> </h1>
+                <div class="menu_block">
+                    <nav>
+                        <ul class="sf-menu">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="Chat.html">Chat</a></li>
+                            <li class="current"><a href="Chien.html">Chien </a></li>
+                            <li><a href="Oiseau.html">Oiseau </a></li>
+                            <li><a href="contacts.html">Contacts </a></li>
+
+                        </ul>
+                    </nav>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </header>
+    <div class="list">
+        {% for a in animals %}
+        <div class="card">
+            <div class="img"><img src="{{a.Photo}}"></div>
+            <div class="grid">
+                <table>
+                    <tr>
+                        <td>Nom: </td>
+                        <td>{{ a.Nom }}</td>
+                    </tr>
+                    <tr>
+                        <td>Age: </td>
+                        <td>{{ a.Age }} mois</td>
+                    </tr>
+                    <tr>
+                        <td>Status vaccinal: </td>
+                        <td>{{ a.StatutVaccinal }}</td>
+                    </tr>
+                    <tr>
+                        <td>Sterilization: </td>
+                        <td>{{ a.Sterilization }}</td>
+                    </tr>
+                    <tr>
+                        <td cols="2">
+                            <center><button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+                                    data-target="#myModal" onclick="idA('{{a.IdA}}')">Adopte moi</button></center>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Je suis</h4>
+                </div>
+                <div class="modal-body">
+                    <center>
+                        <form action="/adopt" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" id="idA" name="idA">
+                            <table>
+                                <tr>
+                                    <td>Nom: </td>
+                                    <td><input name="Nom" type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td>Prenom: </td>
+                                    <td><input name="prenom" type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td>CIN: </td>
+                                    <td><input name="cin" type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td>Salaire mensuelle: </td>
+                                    <td><input name="salaire" value="0" type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td>Logement avec jardin: </td>
+                                    <td><select name="logement">
+                                            <option value="True">Oui</option>
+                                            <option value="False">Non</option>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <td>Situation familiale: </td>
+                                    <td><select name="famille">
+                                            <option value="C">Celibataire</option>
+                                            <option value="M">Marié(e)</option>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <td>Adresse: </td>
+                                    <td><input name="adresse" type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td>Telephone: </td>
+                                    <td><input name="tel" type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td cols="2">
+                                        <center><input type="submit"></center>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </center>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer>
+        <div class="footer bg-dark">
+            <center>
+                <div class="author">Created by: Haitem BEZZAZ</div>
+            </center>
+            <div class="social">
+                <a href="https://web.facebook.com/haitem.bezzaz.3/"><img src="{% static 'images\facebook2.png'%}"></a>
+                <a href="https://www.instagram.com/haitem.bezzaz/"><img src="{% static 'images\instagram2.png'%}"></a>
+                <a href="https://twitter.com/HaitemBezzaz"><img src="{% static 'images\twitter.png'%}"></a>
+                <a href="https://www.linkedin.com/in/haitem-bezzaz-86459b217/"><img
+                        src="{% static 'images\linkedin.png'%}"></a>
+            </div>
+        </div>
+    </footer>
+</body>

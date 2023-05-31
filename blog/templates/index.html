@@ -1,0 +1,234 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Pet Club</title>
+  <meta charset="utf-8">
+  <link rel="icon" href="{% static 'images/favicon.ico'%}">
+  <link rel="shortcut icon" href="{% static '/images/favicon.ico'%}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/slider.css' %}">
+  <script src="{% static 'js/jquery.js'%}"></script>
+  <script src="{% static 'js/jquery-migrate-1.1.1.js'%}"></script>
+  <script src="{% static 'js/superfish.js'%}"></script>
+  <script src="{% static 'js/jquery.carouFredSel-6.1.0-packed.js'%}"></script>
+  <script src="{% static 'js/jquery.equalheights.js'%}"></script>
+  <script src="{% static 'js/jquery.easing.1.3.js'%}"></script>
+  <script src="{% static 'js/tms-0.4.1.js'%}"></script>
+  <script src="{% static 'js/jquery.ui.totop.js'%}"></script>
+  <script>
+    $(window).load(function () {
+      $('.slider')._TMS({
+        show: 0,
+        pauseOnHover: false,
+        prevBu: '.prev',
+        nextBu: '.next',
+        playBu: false,
+        duration: 800,
+        preset: 'fade',
+        pagination: true, //'.pagination',true,'<ul></ul>'
+        pagNums: false,
+        slideshow: 8000,
+        numStatus: false,
+        banners: true,
+        waitBannerAnimation: false,
+        progressBar: false
+      })
+    });
+    $(window).load(function () {
+      $('.carousel1').carouFredSel({
+        auto: false,
+        prev: '.prev',
+        next: '.next',
+        width: 960,
+        items: {
+          visible: {
+            min: 3,
+            max: 3
+          },
+          height: 'auto',
+          width: 300,
+        },
+        responsive: true,
+        scroll: 1,
+        mousewheel: false,
+        swipe: {
+          onMouse: true,
+          onTouch: true
+        }
+      });
+    });
+    jQuery(document).ready(function () {
+      $().UItoTop({
+        easingType: 'easeOutQuart'
+      });
+    });
+  </script>
+  <!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<link rel="stylesheet" media="screen" href="css/ie.css">
+<![endif]-->
+</head>
+
+<body class="page1">
+  <header>
+    <div class="container_12">
+      <div class="grid_12">
+        <h1><a href="index.html"><img src="{% static 'images/logo.png' %}" alt=""></a> </h1>
+        <div class="menu_block">
+          <nav>
+            <ul class="sf-menu">
+              <li class="current"><a href="index.html">Home</a></li>
+              <li><a href="Chat.html">Chat</a></li>
+              <li><a href="Chien.html">Chien </a></li>
+              <li><a href="Oiseau.html">Oiseau </a></li>
+              <li><a href="contacts.html">Contacts </a></li>
+
+            </ul>
+          </nav>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </header>
+  <div class="top_block">
+    <div class="slider-relative">
+      <div class="slider-block">
+        <div class="slider">
+          <ul class="items">
+            <li><img src="{% static 'images/slide.jpg'%}" alt="">
+              <div class="banner">They Need Your <span>Love</span> and <i>Care</i>
+                <p>It is so easy to make them happy</p>
+              </div>
+            </li>
+            <li><img src="{% static 'images/slide1.jpg'%}" alt="">
+              <div class="banner">They Need Your <span>Love</span> and <i>Care</i>
+                <p>It is so easy to make them happy</p>
+              </div>
+            </li>
+            <li><img src="{% static 'images/slide2.jpg'%}" alt="">
+              <div class="banner">They Need Your <span>Love</span> and <i>Care</i>
+                <p>It is so easy to make them happy</p>
+              </div>
+            </li>
+            <li><img src="{% static 'images/slide3.jpg'%}" alt="">
+              <div class="banner">They Need Your <span>Love</span> and <i>Care</i>
+                <p>It is so easy to make them happy</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page1_block">
+    <div class="container_12">
+      <div class="grid_6">
+        <h2>Welcome to Our Site</h2>
+        <br>
+        <img src="{% static 'images/page1_img5.jpg'%}" alt="" class="img_inner fleft">
+
+        <div class="clear"></div>
+        Adopter un animal (chien, chat, cheval, lapin, hamster, souris etc…) est un acte sérieux et une démarche qui se
+        doit responsable. C’est un engagement financier et personnel afin d’offrir bien-être et santé à l’animal. En
+        tant qu’être vivant, chaque animal, quelle que soit son espèce, mérite du temps, de l’attention et de l’amour !
+        L’adoption implique tous les membres d’une famille qui s’engagent à respecter et à prendre soin de leur
+        compagnon.
+
+        Par l’adoption responsable, la SPA veille à ce que cet engagement soit mûrement réfléchi pour éviter un nouvel
+        abandon et un retour au refuge quelques semaines après l’adoption. Grâce aux conseils et à l’accompagnement de
+        nos équipes, seulement 3,8% des animaux adoptés sont revenus dans nos refuges en 2020.
+        Merci d’être ici.<br>
+
+      </div>
+      <div class="grid_5 prefix_1">
+        <h2 class="ic1">Latest News</h2>
+        <ul class="list">
+          <li> <span>
+              <time datetime="2045-01-01">27<span>APR</span></time>
+            </span>
+            <div class="extra_wrapper">
+              <div class="col1"><a href="#">Duis posuere consectetur pellentesqe;</a>
+                <time datetime="2045-01-01">April 27.03.45</time>
+              </div>
+              Sed nisi turpis, pellentesque at ultrices in dapibus in magna. <br>
+              Nunc easi diam risus,placerat ut <br>
+              scelerisque suscipit eu ante. Nullam vitae dolor ullcper felises
+            </div>
+          </li>
+          <li> <span class="cnt">
+              <time datetime="2045-01-01">28<span>APR</span></time>
+            </span>
+            <div class="extra_wrapper">
+              <div class="col1"><a href="#">Kuuis posuere consectetur pellentes;</a>
+                <time datetime="2045-01-01">April 28.03.45</time>
+              </div>
+              Eed nisi turpis, pellentesque at ultrices in dapibus in magna. <br>
+              Nunc easi diam risulacerat ut scelerisque <br>
+              et suscipit eu ante. Nullam vitae dolor ullcper felises.
+            </div>
+          </li>
+          <li> <span>
+              <time datetime="2045-01-01">29<span>APR</span></time>
+            </span>
+            <div class="extra_wrapper">
+              <div class="col1"><a href="#">Opuis posuere honsectetur pellentesyt;</a>
+                <time datetime="2045-01-01">April 29.03.45</time>
+              </div>
+              Koed nisi turpis, pellentesque at ultrices in dapibus in magna. <br>
+              Nunc easi diam risujo placerat ut <br>
+              scelerisque et suscipit eu ante. Ullam vitae dolor ullcper felises.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom_block">
+    <div class="container_12">
+      <div class="grid_6">
+        <h2>Pet Care Tips </h2>
+        <br>
+        Ce site a été crée dans l’espoir d’établir une prise de contact avec vous, puis maintenir un lien. Si vous
+        souhaitez aider nos chats errants, prenez contact avec nous, puis, travaillons y ensemble. Si vous souhaitez
+        faire un don, devenir une famille d’accueil, adopter un chat, nous aider à prendre soin d’eux, ou vous aider à
+        le faire vous-même. Si vous souhaitez faire équipe avec nous, vous êtes le bienvenu. Ou si juste vous avez
+        besoin d’un conseil ou d’une information, contactez-nous sur les réseaux sociaux. Merci d’être ici
+      </div>
+      <div class="grid_4 prefix_2">
+        <h2 class="ic1">Any Question?</h2>
+        <img src="{% static 'images/page1_img4.jpg'%}" alt="" class="fleft img_inner">
+        <div class="extra_wrapper">
+          <div class="cont"> Call Us Free: <span>+212 522 809 280</span> </div>
+        </div>
+        <div class="clear"></div>
+        Des milliers d’animaux vous attendent chaque jour de l’année dans nos refuges. Ils rêvent d’un foyer aimant,
+        d’une seconde chance.
+        Bonne chance dans votre démarche d’adoption responsable!
+        OFFREZ-LEUR LA VIE QU’ILS MÉRITENT
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer bg-dark">
+      <center>
+        <div class="author">Created by: Haitem BEZZAZ</div>
+      </center>
+      <div class="social">
+        <a href="https://web.facebook.com/haitem.bezzaz.3/"><img src="{% static 'images\facebook2.png'%}"></a>
+        <a href="https://www.instagram.com/haitem.bezzaz/"><img src="{% static 'images\instagram2.png'%}"></a>
+        <a href="https://twitter.com/HaitemBezzaz"><img src="{% static 'images\twitter.png'%}"></a>
+        <a href="https://www.linkedin.com/in/haitem-bezzaz-86459b217/"><img src="{% static 'images\linkedin.png'%}"></a>
+      </div>
+    </div>
+  </footer>
+</body>
+<script>
+  if (window.location.href.includes("adopt"))
+    alert("{{message}}");
+</script>
+
+</html>
